@@ -1,7 +1,7 @@
 package com.pucminas.sgq.qualitytransparence.controller;
 
-import com.pucminas.sgq.qualitytransparence.service.IncidentProblemService;
-import com.pucminas.sgq.qualitytransparence.vo.IncidentProblemVO;
+import com.pucminas.sgq.qualitytransparence.service.NotificationService;
+import com.pucminas.sgq.qualitytransparence.vo.NotificationVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1")
-public class IncidentProblemController {
+public class NotificationController {
 
     @Autowired
-    private IncidentProblemService incidentProblemService;
+    private NotificationService notificationService;
 
-    @PostMapping("/incidentProblem")
-    public ResponseEntity<IncidentProblemVO> createIncident(@RequestBody IncidentProblemVO incidentProblemVO) {
+    @PostMapping("/createNotification")
+    public ResponseEntity<NotificationVO> createNotification(@RequestBody NotificationVO notificationVO) {
         try {
-            incidentProblemService.publishIncidentProblem(incidentProblemVO);
-            return new ResponseEntity<>(incidentProblemVO, HttpStatus.OK);
+            notificationService.publish(notificationVO);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

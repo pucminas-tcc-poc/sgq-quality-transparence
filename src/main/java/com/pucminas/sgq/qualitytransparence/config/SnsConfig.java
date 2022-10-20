@@ -16,8 +16,8 @@ public class SnsConfig {
     @Value("${aws.region}")
     private String awsRegion;
 
-    @Value("${aws.sns.topic.incident.problem.arn}")
-    private String incidentProblemTopic;
+    @Value("${aws.sns.topic.notification.arn}")
+    private String notificationTopic;
 
     @Bean
     public AmazonSNS snsClient() {
@@ -29,9 +29,9 @@ public class SnsConfig {
                 .build();
     }
 
-    @Bean(name = "incidentProblemTopic")
-    public Topic snsIncidentProblemTopic() {
-        return new Topic().withTopicArn(incidentProblemTopic);
+    @Bean(name = "notificationTopic")
+    public Topic snsNotificationTopic() {
+        return new Topic().withTopicArn(notificationTopic);
     }
 
 }

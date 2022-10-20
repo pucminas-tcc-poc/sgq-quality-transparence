@@ -2,10 +2,9 @@ package com.pucminas.sgq.qualitytransparence.vo;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @Builder
-@ToString
+@NoArgsConstructor
 @AllArgsConstructor
 public class ProblemVO {
     String problem;

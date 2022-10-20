@@ -7,7 +7,7 @@ import lombok.*;
 @Builder
 @ToString
 @AllArgsConstructor
-public class IncidentProblemVO {
+public class NotificationVO {
     Long incidentId;
     Long problemId;
     String tittle;

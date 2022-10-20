@@ -9,22 +9,22 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class IncidentProblemPublisher {
+public class NotificationPublisher {
     private static final Logger LOG = LoggerFactory.getLogger(
-            IncidentProblemPublisher.class);
+            NotificationPublisher.class);
 
     private AmazonSNS snsClient;
-    private Topic incidentProblemTopic;
+    private Topic notificationTopic;
 
-    public IncidentProblemPublisher(AmazonSNS snsClient,
-                            @Qualifier("incidentProblemTopic")Topic incidentProblemTopic) {
+    public NotificationPublisher(AmazonSNS snsClient,
+                                 @Qualifier("notificationTopic")Topic notificationTopic) {
         this.snsClient = snsClient;
-        this.incidentProblemTopic = incidentProblemTopic;
+        this.notificationTopic = notificationTopic;
     }
 
     public void publish(String message) {
         PublishResult publishResult = snsClient.publish(
-                incidentProblemTopic.getTopicArn(),
+                notificationTopic.getTopicArn(),
                 message);
 
         LOG.info("MessageId: {}", publishResult.getMessageId());
