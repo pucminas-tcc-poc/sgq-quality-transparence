@@ -7,12 +7,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProblemVO {
-    String problem;
+    String description;
     String type;
     String demage;
-    Long partId;
-    Long vehicleId;
-    Long nonComplianceId;
-    Long userId;
 }
 

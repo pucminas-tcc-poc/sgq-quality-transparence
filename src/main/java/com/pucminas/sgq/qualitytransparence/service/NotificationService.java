@@ -26,10 +26,10 @@ public class NotificationService {
 
         if (Objects.nonNull(notificationVO.getIncidentId())) {
             IncidentVO incidentVO = sgqAPIGatewayRestClient.getIncidentById(notificationVO.getIncidentId());
-            messageToPublish.append(incidentVO.getIncident());
+            messageToPublish.append(incidentVO.getDescription());
         } else {
             ProblemVO problemVO = sgqAPIGatewayRestClient.getProblemById(notificationVO.getProblemId());
-            messageToPublish.append(problemVO.getProblem());
+            messageToPublish.append(problemVO.getDescription());
         }
 
         notificationPublisher.publish(messageToPublish.toString());

@@ -7,14 +7,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class IncidentVO {
-    String incident;
+    String description;
     String status;
     String type;
     String place;
     String demage;
-    Long partId;
-    Long vehicleId;
-    Long nonComplianceId;
-    Long userId;
 }
 
