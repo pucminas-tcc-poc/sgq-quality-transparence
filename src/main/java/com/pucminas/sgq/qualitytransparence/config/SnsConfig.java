@@ -25,7 +25,7 @@ public class SnsConfig {
         return AmazonSNSClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(basic))
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(
-                        "http://localhost:4566", awsRegion))
+                        "http://localstack:4566", awsRegion))
                 .build();
     }
 
