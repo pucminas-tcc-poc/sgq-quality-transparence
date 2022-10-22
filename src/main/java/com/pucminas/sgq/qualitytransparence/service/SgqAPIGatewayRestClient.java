@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name = "sgq-api-gateway", url = "http://localhost:8080/api/v1")
+@FeignClient(name = "sgq-api-gateway", url = "http://sgq-api-gateway:8080/compliance/api/v1")
 public interface SgqAPIGatewayRestClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/problem/{id}")

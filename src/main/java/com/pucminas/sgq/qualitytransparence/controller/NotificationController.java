@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/notification/api/v1")
 public class NotificationController {
 
     @Autowired
     private NotificationService notificationService;
 
-    @PostMapping("/createNotification")
+    @PostMapping("/create")
     public ResponseEntity<NotificationVO> createNotification(@RequestBody NotificationVO notificationVO) {
         try {
             notificationService.publish(notificationVO);
